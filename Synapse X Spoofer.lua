@@ -547,22 +547,7 @@ if not debug.getinfo then
 getgenv().debug.getinfo = getinfo
 end
 define("getcallingscript",newcclose(getcallingscriptff))
-pcall(function()
-	if _G.ReplaceInstance then
-		getgenv().saveinstance = nil
-	end
-	loadstring(game:HttpGet("https://github.com/MuhXd/Roblox-mobile-script/blob/main/Arecus-X-Neo/Saveinstance.lua?raw=true"))();
-	define("oldsaveinstance",saveinstance or nil)
-end)
-if not saveinstance then
-	pcall(function()
-		loadstring(game:HttpGet("https://github.com/MuhXd/Roblox-mobile-script/blob/main/Arecus-X-Neo/Saveinstance.lua?raw=true"))();
-	end)
-	if not saveinstance then
-		getgenv().saveinstance = errorthrow("saveinstance")
-		define("oldsaveinstance",saveinstance or nil)
-	end
-end
+
 
 task.spawn(function()
 	local teleportConnection = game.Players.LocalPlayer.OnTeleport:Connect(function(State)
